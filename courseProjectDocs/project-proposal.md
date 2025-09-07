@@ -37,7 +37,6 @@ Comment density: 50.82%
 
 > Note: Refer to comment density code [here](https://github.com/SWEN-777/TheAlgorithms-Python/blob/master/courseProjectCode/Metrics/comment_density.py)
 
-
 ### Testability
 
 #### Number of Unit Test Cases
