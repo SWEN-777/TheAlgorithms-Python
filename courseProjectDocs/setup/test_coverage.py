@@ -18,11 +18,11 @@ def has_doctest(file_path):
                 if docstring and ">>>" in docstring:
                     return True
     except Exception as e:
-        print(f"⚠️ Error parsing {file_path}: {e}")
+        print(f"Error parsing {file_path}: {e}")
     return False
 
 def run_doctest_with_coverage(file_path, project_root, filename):
-    print(f"\n📄 Running doctests in: {file_path}")
+    print(f"\n Running doctests in: {file_path}")
 
     if project_root not in sys.path:
         sys.path.insert(0, project_root)
@@ -37,7 +37,7 @@ def run_doctest_with_coverage(file_path, project_root, filename):
         module = importlib.import_module(module_name)
         result = doctest.testmod(module)
     except Exception as e:
-        print(f"❌ Import failed for {file_path}: {e}")
+        print(f"Import failed for {file_path}: {e}")
         cov.stop()
         cov.save()
         return {
@@ -60,11 +60,11 @@ def run_doctest_with_coverage(file_path, project_root, filename):
         buffer_output = buffer.getvalue()
         buffer.close()
     except Exception as e:
-        print(f"⚠️ Coverage analysis failed for {file_path}: {e}")
+        print(f" Coverage analysis failed for {file_path}: {e}")
         covered = missed = percent = 0
 
-    print(f"✅ Passed: {result.attempted - result.failed}, ❌ Failed: {result.failed}")
-    print(f"📊 Coverage: {percent:.1f}%")
+    print(f" Passed: {result.attempted - result.failed},  Failed: {result.failed}")
+    print(f" Coverage: {percent:.1f}%")
     return {
         "type": "doctest",
         "file": filename,
@@ -74,7 +74,7 @@ def run_doctest_with_coverage(file_path, project_root, filename):
     }
 
 def run_pytest_with_coverage(pytest_dir, filename):
-    print(f"\n🧪 Running pytest in: {pytest_dir}")
+    print(f"\n Running pytest in: {pytest_dir}")
 
     subprocess.run([
         "coverage", "run", "--parallel-mode", "-m", "pytest", pytest_dir,
@@ -96,10 +96,10 @@ def run_pytest_with_coverage(pytest_dir, filename):
         last_line = lines[-1] if lines else ""
         percent = float(last_line.split()[-1].replace("%", "")) if "%" in last_line else 0.0
     except Exception as e:
-        print(f"⚠️ Coverage analysis failed for {pytest_dir}: {e}")
+        print(f" Coverage analysis failed for {pytest_dir}: {e}")
         percent = 0.0
 
-    print(f"📊 Coverage: {percent:.1f}%")
+    print(f" Coverage: {percent:.1f}%")
     return {
         "type": "pytest",
         "file": filename,
