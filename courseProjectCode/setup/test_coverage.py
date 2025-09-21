@@ -21,7 +21,7 @@ def has_doctest(file_path):
         print(f"⚠️ Error parsing {file_path}: {e}")
     return False
 
-def run_doctest_with_coverage(file_path, project_root):
+def run_doctest_with_coverage(file_path, project_root, filename):
     print(f"\n📄 Running doctests in: {file_path}")
 
     if project_root not in sys.path:
@@ -42,7 +42,7 @@ def run_doctest_with_coverage(file_path, project_root):
         cov.save()
         return {
             "type": "doctest",
-            "file": file_path,
+            "file": filename,
             "passed": 0,
             "failed": 1,
             "coverage": 0
@@ -67,13 +67,13 @@ def run_doctest_with_coverage(file_path, project_root):
     print(f"📊 Coverage: {percent:.1f}%")
     return {
         "type": "doctest",
-        "file": file_path,
+        "file": filename,
         "passed": result.attempted - result.failed,
         "failed": result.failed,
         "coverage": percent
     }
 
-def run_pytest_with_coverage(pytest_dir):
+def run_pytest_with_coverage(pytest_dir, filename):
     print(f"\n🧪 Running pytest in: {pytest_dir}")
 
     subprocess.run([
@@ -102,9 +102,9 @@ def run_pytest_with_coverage(pytest_dir):
     print(f"📊 Coverage: {percent:.1f}%")
     return {
         "type": "pytest",
-        "file": pytest_dir,
-        "passed": "see output",
-        "failed": "see output",
+        "file": filename,
+        "passed": "-",
+        "failed": "-",
         "coverage": percent
     }
 
@@ -117,20 +117,95 @@ def run_all_tests(doctest_dirs, pytest_dirs, project_root):
                 if filename.endswith(".py"):
                     file_path = os.path.join(dirpath, filename)
                     if has_doctest(file_path):
-                        result = run_doctest_with_coverage(file_path, project_root)
+                        result = run_doctest_with_coverage(file_path, project_root, filename)
                         summary.append(result)
 
     for test_dir in pytest_dirs:
-        result = run_pytest_with_coverage(test_dir)
+        result = run_pytest_with_coverage(test_dir, filename)
         summary.append(result)
 
-    print("\n📋 Combined Summary Report")
+    print("\n\n\n############# COMBINED SUMMARY REPORT #############\n")
+    print_summary(summary)
+
+
+def print_summary(summary):
+    if not summary:
+        print("No tests found.")
+        return
+
+    # Compute column widths dynamically
+    type_width = max(len("Type"), max(len(i["type"]) for i in summary))
+    file_width = max(len("File"), max(len(i["file"]) for i in summary))
+    passed_width = max(len("Passed"), max(len(str(i["passed"])) for i in summary))
+    failed_width = max(len("Failed"), max(len(str(i["failed"])) for i in summary))
+    coverage_width = max(len("Coverage"), max(len(f"{i['coverage']:.1f}%") for i in summary))
+
+    # Build border line
+    border = (
+        f"+{'-' * (type_width+4)}+{'-' * (file_width+2)}+{'-' * (passed_width+6)}+"
+        f"{'-' * (failed_width+6)}+{'-' * (coverage_width+6)}+"
+    )
+
+    # Header with emojis only in the title
+    header = (
+        f"| {'Type':<{type_width+3}}"
+        f"| {'File':<{file_width+1}}"
+        f"| {'Passed':<{passed_width+5}}"
+        f"| {'Failed':<{failed_width+5}}"
+        f"| {'Coverage':<{coverage_width+5}}|"
+    )
+
+    print(border)
+    print(header)
+    print(border)
+
+    # Initialize totals
+    total_passed, total_failed, coverage_values = 0, 0, []
+
+    # Print rows
     for item in summary:
-        label = "🧪 Pytest" if item["type"] == "pytest" else "📄 Doctest"
-        print(f"{label} - {item['file']}: ✅ {item['passed']} ❌ {item['failed']} 📊 {item['coverage']:.1f}%")
+        label = "pytest" if item["type"] == "pytest" else "doctest"
+        coverage_str = f"{item['coverage']:.1f}%"
+        row = (
+            f"| {label:<{type_width+3}}"
+            f"| {item['file']:<{file_width+1}}"
+            f"| {item['passed']:<{passed_width+5}}"
+            f"| {item['failed']:<{failed_width+5}}"
+            f"| {coverage_str:<{coverage_width+5}}|"
+        )
+        print(row)
+
+        # Update totals for average calculation
+        if isinstance(item["passed"], int):
+            total_passed += item["passed"]
+        if isinstance(item["failed"], int):
+            total_failed += item["failed"]
+        if isinstance(item["coverage"], (int, float)):
+            coverage_values.append(item["coverage"])
+
+    print(border)
+
+    # Compute average coverage
+    avg_coverage = sum(coverage_values) / len(coverage_values) if coverage_values else 0
+
+    # Totals row
+    total_row = (
+        f"| {'TOTAL':<{type_width+3}}"
+        f"| {'':<{file_width+1}}"
+        f"| {total_passed:<{passed_width+5}}"
+        f"| {total_failed:<{failed_width+5}}"
+        f"| {avg_coverage:.1f}%"
+        f"{' ' * (coverage_width+4-len(f'{avg_coverage:.1f}%'))}|"
+    )
+    print(total_row)
+    print(border)
+
 
 if __name__ == "__main__":
-    project_root = "/Users/uzairmukadam/Projects/TheAlgorithms-Python"
+    ## project_root = "/Users/uzairmukadam/Projects/TheAlgorithms-Python"
+
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    print(project_root)
 
     doctest_dirs = [
         f"{project_root}/data_structures/",
