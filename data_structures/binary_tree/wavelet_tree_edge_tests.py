@@ -17,7 +17,6 @@ def test_single_element_array():
     assert quantile(root, 0, 0, 0) == 5
     assert range_counting(root, 0, 0, 0, 10) == 1
 
-# Edge case: query for non-existent value
 def test_query_nonexistent_value():
     root = build_tree([1, 2, 3, 4])
     assert rank(root, 99, 0, 3) == 0
