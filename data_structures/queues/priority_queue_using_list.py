@@ -64,6 +64,21 @@ class FixedPriorityQueue:
     Priority 0: []
     Priority 1: []
     Priority 2: []
+
+
+    Edge cases
+    >>> fpq = FixedPriorityQueue()
+    >>> fpq.enqueue(3, 10)  # invalid priority
+    Traceback (most recent call last):
+        ...
+    ValueError: Valid priorities are 0, 1, and 2
+
+    >>> for i in range(100):
+    ...     fpq.enqueue(0, i)
+    >>> fpq.enqueue(0, 101)  # exceed capacity
+    Traceback (most recent call last):
+        ...
+    OverflowError: Maximum queue size is 100
     """  # noqa: E501
 
     def __init__(self):
@@ -144,6 +159,23 @@ class ElementPriorityQueue:
     data_structures.queues.priority_queue_using_list.UnderFlowError: The queue is empty
     >>> print(epq)
     []
+
+
+    Edge cases
+    >>> epq = ElementPriorityQueue()
+    >>> for i in range(100):
+    ...     epq.enqueue(i)
+    >>> epq.enqueue(101)  # exceed capacity
+    Traceback (most recent call last):
+        ...
+    data_structures.queues.priority_queue_using_list.OverFlowError: Maximum queue size is 100
+
+    >>> epq = ElementPriorityQueue()
+    >>> epq.dequeue()  # dequeue from empty
+    Traceback (most recent call last):
+        ...
+    data_structures.queues.priority_queue_using_list.UnderFlowError: The queue is empty
+
     """
 
     def __init__(self):
