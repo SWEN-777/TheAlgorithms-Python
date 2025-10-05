@@ -17,3 +17,8 @@ python test_coverage.py
 ```
 
 3. The output you see on your terminal will match the [coverage screenshot](https://github.com/SWEN-777/TheAlgorithms-Python/blob/master/courseProjectDocs/setup/testCoverage.png) and [test results](https://github.com/SWEN-777/TheAlgorithms-Python/blob/master/courseProjectDocs/setup/testResults.pdf)
+
+
+------
+added new quadratic_probing_mock_test execute like normal
+pytest data_structures/hashing/quadratic_probing_mock_test.py. //to just execute the new test
