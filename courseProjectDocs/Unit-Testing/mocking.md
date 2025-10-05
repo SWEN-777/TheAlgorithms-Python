@@ -16,6 +16,13 @@
 | Interactive menu push | Tests user input simulation for push operation |
 | Interactive menu pop | Tests user input simulation for pop operation |
 | Interactive menu peek | Tests user input simulation for peek operation |
+| Element Initialization Check | Verifies Node initialization using attribute tracking |
+| Set Combination with Equal Ranks | Tests the combination process (equal ranks) |
+| Set Combination with Unequal Ranks | Tests the combination process (unequal ranks) |
+| Path Simplification | Verifies the path optimization process |
+| Redundant Set Join | Tests the join process failure (identical reps) |
+| Rank Heuristic Join | Tests the join process success |
+
 
 ## Mocking Strategy
 
@@ -28,3 +35,9 @@
 - **`deque`**: Mocked to control queue behavior and test internal transfers.
 - **`builtins.input`**: Mocked to simulate user input for interactive operations.
 - **`builtins.print`**: Mocked to capture console output.
+
+### Disjoint Set
+- **`Node`**: Faked using MagicMock(spec=Node) to verify internal attribute assignment (rank, parent).
+- **`find_set`**: Mocked  within union_set tests to control the root nodes and their ranks, isolating the union logic.
+- **`get_parent`** (Alternate Disjoint Set): Mocked  within merge tests to control the parent indices returned, simplifying the testing of the merge (union-by-rank) logic.
+
