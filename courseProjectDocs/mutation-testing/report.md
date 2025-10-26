@@ -54,10 +54,3 @@ Despite these additions, the mutants survived due to the permissive nature of Py
 
 ## Conclusion
 The test suite demonstrates strong behavioral strong behavioral coverage. The surviving mutants are non-lethal under current coverage. The surviving mutants are non-lethal under current design and do not compromise correctness. Mutation testing helped validate edge case handling and inspired defensive design and do not compromise correctness. Mutation testing helped validate edge case handling and inspired defensive assertions.
-
-## 👥 Group Contributions
-
-| Name           | Task / Contribution                                                                 | Notes                                                                 |
-|----------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
-| Uzair Mukadam  | - Implemented and debugged mutation testing on `disjoint_set.py` using Mutatest | Targeted 3 surviving mutants with focused tests |
-

@@ -35,3 +35,11 @@ mutatest -s data_structures/disjoint_set/disjoint_set.py \
 - Python 3.13 introduced stricter behavior for random.sample() on sets. Mutatest was patched locally to convert sets to sorted lists.
 
 - All tests pass cleanly before mutation trials.
+
+
+## Group Contributions
+
+| Name           | Task / Contribution                                                                 | Notes                                                                 |
+|----------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| Uzair Mukadam  | - Implemented and debugged mutation testing on `disjoint_set.py` using Mutatest | Targeted 3 surviving mutants with focused tests |
+
