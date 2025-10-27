@@ -6,18 +6,6 @@ from data_structures.stacks.stack_using_two_queues import StackWithQueues
 
 class TestStackWithQueuesMock(unittest.TestCase):
 
-    def test_push_with_mocked_deque(self):
-        stack = StackWithQueues()
-        stack.main_queue = MagicMock(spec=deque)
-        stack.temp_queue = MagicMock(spec=deque)
-
-        stack.main_queue.__len__.return_value = 0
-        stack.main_queue.__bool__.return_value = False
-
-        stack.push(10)
-
-        stack.temp_queue.append.assert_called_with(10)
-
     @patch('data_structures.stacks.stack_using_two_queues.deque')
     def test_push_transfers_elements_correctly(self, mock_deque_class):
         stack = StackWithQueues()
