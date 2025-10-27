@@ -16,34 +16,38 @@ pip install mutatest pytest
 ```
 
 2. Run mutation testing:
+
+- Disjoint Sets
 ```bash
 mutatest -s data_structures/disjoint_set/disjoint_set.py \
          -t "pytest data_structures/disjoint_set/test_disjoint_set_mocked.py" \
          -m s --parallel --timeout_factor 2.0
 ```
 
-## Target Files
-
-- data_structures/disjoint_set/disjoint_set.py
-- data_structures/stacks/stack_using_two_queues.py
-
-## Test Files
-
-- data_structures/disjoint_set/test_disjoint_set_mocked.py
-- data_structures/stacks/test_stack_mutation.py
-
-## Stack Mutation Testing
-
-1. Run mutation testing on Stack implementation:
+- Stacks
 ```bash
 mutatest -s data_structures/stacks/stack_using_two_queues.py \
          -t "pytest data_structures/stacks/test_stack_mutation.py" \
          -m s --parallel --timeout_factor 2.0
 ```
 
-2. The stack implementation has 23 total mutation targets identified by Mutatest
+- Heap
+```bash
+mutatest -s heap.py -t "python -m unittest heap_mutation_tests.py"
+```
 
-3. Tests cover all behavioral mutations in push, pop, and peek methods
+## Target Files
+
+- data_structures/disjoint_set/disjoint_set.py
+- data_structures/stacks/stack_using_two_queues.py
+- data_structures/heap/heap.py
+
+## Test Files
+
+- data_structures/disjoint_set/test_disjoint_set_mocked.py
+- data_structures/stacks/test_stack_mutation.py
+- data_structures/heap/heap_mutation_tests.py
+
 
 ## Notes
 
@@ -60,4 +64,5 @@ mutatest -s data_structures/stacks/stack_using_two_queues.py \
 |----------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
 | Uzair Mukadam  | - Implemented and debugged mutation testing on `disjoint_set.py` using Mutatest | Targeted 3 surviving mutants with focused tests |
 | Shridhar Shinde| - Implemented mutation testing on `stack_using_two_queues.py` using Mutatest | Created comprehensive test suite targeting type annotation and behavioral mutations |
+| Rohini Senthilkumar | - Implemented and debugged mutation testing on `heap.py` using Mutatest | Created comprehensive test suite targeting index, loop, and recursion logic |
 

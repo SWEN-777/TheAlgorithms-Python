@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from abc import abstractmethod
 from collections.abc import Iterable
-from typing import Protocol, TypeVar
+from typing import Protocol, TypeVar, Generic 
 
 
 class Comparable(Protocol):
@@ -22,7 +22,7 @@ class Comparable(Protocol):
 T = TypeVar("T", bound=Comparable)
 
 
-class Heap[T: Comparable]:
+class Heap(Generic[T]): 
     """A Max Heap Implementation
 
     >>> unsorted = [103, 9, 1, 7, 11, 15, 25, 201, 209, 107, 5]
