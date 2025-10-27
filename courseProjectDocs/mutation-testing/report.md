@@ -1,4 +1,4 @@
-# Mutation Testing Report
+# Disjoint Set Mutation Testing Report
 
 ## Overview
 Mutation testing was performed on `disjoint_set.py` to evaluate the effectiveness of the test suite. Mutations were introduced using Mutatest, and the test suite was executed to determine which mutations were detected ("killed") and which survived.
@@ -152,3 +152,40 @@ The test suite demonstrates comprehensive behavioral coverage of the stack imple
 4. The test suite successfully detects any changes to actual program behavior
 
 Mutation testing helped identify the importance of strict identity checks (using `is` instead of `==`) for None values and validated the robustness of the test suite against behavioral changes.
+
+-- 
+
+# Heap Mutation Testing Report
+
+## Overview
+
+Mutation testing was performed on `heap.py` using Mutatest to evaluate the effectiveness of the heap_mutation_tests_only.py suite. Mutatest identified 60 potential mutation targets and ran trials on a random sample of 10 locations.
+
+## Mutation Summary
+
+### Test File Used
+- data_structures/heap/heap_mutation_tests.py
+
+### Observation
+- Total mutation targets identified: 60
+- Sample size tested: 10
+- Mutants killed: 20
+- Mutants survived: 6
+- Mutation score: 76.9%
+
+## Surviving Mutants
+
+The 6 surviving mutants (out of 26 total runs) represent code changes that the existing test suite does not catch.
+
+| Line | Column | Mutation Type             | Target Method / Location                                | Survival Reason                                                |
+|------|---------|---------------------------|----------------------------------------------------------|----------------------------------------------------------------|
+| 101  | 56      | `None` → `True`           | `left_child_idx` return annotation                       | **Non-Behavioral** (Type Hint)                                 |
+| 128  | 15      | `!=` → `>`                | `max_heapify` (`if violation != index`)                  | **Logical Gap** (Test doesn't strictly check pre-swap state)   |
+| 162  | 27      | `//` → `**` (Power)       | `insert` loop index calculation `((idx - 1) // 2)`       | **Arithmetic Error** (Insert test asserts final state only)    |
+| 196  | 34      | `None` → `False`          | `Heap.__init__` return annotation                        | **Non-Behavioral** (Type Hint)                                 |
+| 241  | 0       | `If_Statement` → `If_False` | `if __name__ == "__main__"`                              | **Non-Executable** (Test runner skips this block)              |
+| 241  | 3       | `ast.Eq` → `ast.LtE`      | `if __name__ == "__main__"` conditional                  | **Non-Executable** (Test runner skips this block)              |
+
+## Conclusion
+
+The test suite exhibits strong coverage for core heap operations, successfully killing most mutations related to comparison logic, loop iterations, and simple arithmetic errors (as seen by the many "Detected" results).
