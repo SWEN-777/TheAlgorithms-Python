@@ -1,6 +1,12 @@
 import unittest
-from unittest.mock import Mock, patch, MagicMock
-from data_structures.disjoint_set.disjoint_set import Node, make_set, union_set, find_set
+from unittest.mock import MagicMock, Mock, patch
+
+from data_structures.disjoint_set.disjoint_set import (
+    Node,
+    find_set,
+    make_set,
+    union_set,
+)
 
 
 class TestDisjointSetMocked(unittest.TestCase):
