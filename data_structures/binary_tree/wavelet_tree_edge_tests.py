@@ -1,5 +1,11 @@
-import pytest
-from data_structures.binary_tree.wavelet_tree import build_tree, rank, rank_till_index, quantile, range_counting
+from data_structures.binary_tree.wavelet_tree import (
+    build_tree,
+    quantile,
+    range_counting,
+    rank,
+    rank_till_index,
+)
+
 
 def test_empty_array():
     root = build_tree([])

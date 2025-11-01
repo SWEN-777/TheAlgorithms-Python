@@ -1,6 +1,7 @@
-import pytest
 from unittest.mock import MagicMock
+
 from data_structures.hashing.quadratic_probing import QuadraticProbing
+
 
 def test_probe_lands_on_third_attempt():
     qp = QuadraticProbing(7)
