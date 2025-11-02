@@ -1,5 +1,6 @@
 import unittest
-from unittest.mock import Mock, patch, MagicMock, call
+from unittest.mock import MagicMock, patch
+
 from data_structures.suffix_tree.suffix_tree import SuffixTree
 from data_structures.suffix_tree.suffix_tree_node import SuffixTreeNode
 
@@ -11,7 +12,7 @@ class TestSuffixTreeMock(unittest.TestCase):
         mock_root = MagicMock()
         mock_node_class.return_value = mock_root
 
-        tree = SuffixTree("test")
+        SuffixTree("test")
 
         mock_node_class.assert_called()
 
@@ -41,56 +42,56 @@ class TestSuffixTreeMock(unittest.TestCase):
 
         tree._add_suffix("a", 0)
 
-        self.assertIn('a', tree.root.children)
+        assert 'a' in tree.root.children
 
     def test_search_empty_pattern(self):
         tree = SuffixTree("banana")
 
         result = tree.search("")
 
-        self.assertTrue(result)
+        assert result
 
     def test_search_single_character(self):
         tree = SuffixTree("banana")
 
         result = tree.search("b")
 
-        self.assertTrue(result)
+        assert result
 
     def test_search_non_existent_pattern(self):
         tree = SuffixTree("banana")
 
         result = tree.search("xyz")
 
-        self.assertFalse(result)
+        assert not result
 
     def test_search_full_text(self):
         tree = SuffixTree("hello")
 
         result = tree.search("hello")
 
-        self.assertTrue(result)
+        assert result
 
     def test_search_suffix(self):
         tree = SuffixTree("testing")
 
         result = tree.search("ting")
 
-        self.assertTrue(result)
+        assert result
 
     def test_search_prefix(self):
         tree = SuffixTree("testing")
 
         result = tree.search("test")
 
-        self.assertTrue(result)
+        assert result
 
     def test_search_middle_substring(self):
         tree = SuffixTree("testing")
 
         result = tree.search("sti")
 
-        self.assertTrue(result)
+        assert result
 
     @patch('data_structures.suffix_tree.suffix_tree.SuffixTreeNode')
     def test_node_children_dictionary(self, mock_node_class):
@@ -100,30 +101,30 @@ class TestSuffixTreeMock(unittest.TestCase):
 
         tree = SuffixTree("ab")
 
-        self.assertIsInstance(tree.root.children, dict)
+        assert isinstance(tree.root.children, dict)
 
     def test_empty_string_tree(self):
         tree = SuffixTree("")
 
         result = tree.search("")
 
-        self.assertTrue(result)
+        assert result
 
     def test_single_character_tree(self):
         tree = SuffixTree("a")
 
-        self.assertTrue(tree.search("a"))
-        self.assertFalse(tree.search("b"))
+        assert tree.search("a")
+        assert not tree.search("b")
 
     def test_repeated_characters(self):
         tree = SuffixTree("aaaa")
 
-        self.assertTrue(tree.search("aa"))
-        self.assertTrue(tree.search("aaa"))
-        self.assertTrue(tree.search("aaaa"))
+        assert tree.search("aa")
+        assert tree.search("aaa")
+        assert tree.search("aaaa")
 
     @patch('data_structures.suffix_tree.suffix_tree.SuffixTreeNode')
-    def test_add_suffix_sets_end_marker(self, mock_node_class):
+    def test_add_suffix_sets_end_marker(self):
         tree = SuffixTree.__new__(SuffixTree)
         tree.text = "test"
         tree.root = SuffixTreeNode()
@@ -131,10 +132,10 @@ class TestSuffixTreeMock(unittest.TestCase):
         tree._add_suffix("t", 0)
 
         node = tree.root.children['t']
-        self.assertTrue(node.is_end_of_string)
+        assert node.is_end_of_string
 
     @patch('data_structures.suffix_tree.suffix_tree.SuffixTreeNode')
-    def test_add_suffix_sets_indices(self, mock_node_class):
+    def test_add_suffix_sets_indices(self):
         tree = SuffixTree.__new__(SuffixTree)
         tree.text = "test"
         tree.root = SuffixTreeNode()
@@ -145,35 +146,35 @@ class TestSuffixTreeMock(unittest.TestCase):
         for char in "est":
             node = node.children[char]
 
-        self.assertEqual(node.start, 1)
-        self.assertEqual(node.end, 3)
+        assert node.start == 1
+        assert node.end == 3
 
     def test_case_sensitive_search(self):
         tree = SuffixTree("Hello")
 
-        self.assertTrue(tree.search("Hello"))
-        self.assertFalse(tree.search("hello"))
+        assert tree.search("Hello")
+        assert not tree.search("hello")
 
     def test_special_characters(self):
         tree = SuffixTree("test@123")
 
-        self.assertTrue(tree.search("@123"))
-        self.assertTrue(tree.search("est@"))
+        assert tree.search("@123")
+        assert tree.search("est@")
 
     def test_search_longer_than_text(self):
         tree = SuffixTree("ab")
 
         result = tree.search("abc")
 
-        self.assertFalse(result)
+        assert not result
 
     def test_multiple_searches(self):
         tree = SuffixTree("algorithm")
 
-        self.assertTrue(tree.search("algo"))
-        self.assertTrue(tree.search("rithm"))
-        self.assertTrue(tree.search("go"))
-        self.assertFalse(tree.search("xyz"))
+        assert tree.search("algo")
+        assert tree.search("rithm")
+        assert tree.search("go")
+        assert not tree.search("xyz")
 
 
 if __name__ == "__main__":
