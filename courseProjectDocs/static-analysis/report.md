@@ -11,6 +11,7 @@
   - `data_structures/disjoint_set`
   - `data_structures/hashing`
   - `data_structures/trie`
+  - `data_structures/suffix_tree`
 
 ---
 
@@ -27,7 +28,8 @@
 | trie         | `radix_tree.py`                         | Unused unpacked variable (RUF059)                                                | 2     |
 | trie         | `test_radix_tree_mock.py`               | Assertion style (PT009), unused imports (F401), unsorted imports (I001)          | 50+   |
 | trie         | `test_trie_edge.py`                     | Assertion style (PT009)                                                          | 51    |
-
+| suffix_tree      | `test_suffix_tree_edge.py`               | Assertion style (PT009), long line (E501), unused loop variable (B007)                         | 20+   |
+| suffix_tree      | `test_suffix_tree_mock.py`               | Assertion style (PT009), unused variable (F841), unused argument (ARG002)                      | 30+   |
 ---
 
 ## 🔍 Key Findings
@@ -42,6 +44,12 @@
   - 2 instances of unused unpacked variable `matching_string` in `radix_tree.py` (in `find()` and `delete()` methods) renamed to `_matching_string`
   - Removed unused imports (`Mock`, `MagicMock`, `call` from unittest.mock) in `test_radix_tree_mock.py`
   - Reorganized import statements for better code organization
+- **Suffix Tree Module (75 issues):**
+  - Unified test assertion style to native `assert` statements.
+  - Split long lines exceeding 88 characters for readability.
+  - Replaced unused loop variables (`for i in range(len(...))`) with `_` or list comprehensions.
+  - Removed unused variables (`temp_result`, `expected_value`) and unused arguments in mock tests.
+  - Improved import order and added missing EOF newline for consistency.
 
 ---
 
@@ -58,6 +66,8 @@
 | `radix_tree.py`                         | `matching_string, remaining_prefix, remaining_word = ...`             | `_matching_string, remaining_prefix, remaining_word = ...`                                          |
 | `test_radix_tree_mock.py`               | `self.assertEqual(...)`, `self.assertIn(...)`, `self.assertTrue(...)` | Replaced with `assert ...`, removed unused imports (`Mock`, `MagicMock`, `call`), organized imports |
 | `test_trie_edge.py`                     | `self.assertTrue(...)`, `self.assertFalse(...)`, `self.assertIn(...)` | Replaced with `assert ...`, `assert not ...`, `assert ... in ...`                                   |
+ `test_suffix_tree_edge.py`              | `self.assertEqual(...)`, long lines, unused loop variable (`for i`)   | Replaced with native `assert`, split long lines, renamed loop var to `_`                            |
+| `test_suffix_tree_mock.py`              | `self.assertTrue(...)`, unused variable (`temp_result`), unused args  | Replaced with native `assert`, removed unused vars, cleaned imports                                 |
 
 ---
 
@@ -67,4 +77,4 @@
 | --------------------- | --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | Uzair Mukadam         | - Ran Ruff static analysis on arrays, binary_tree, disjoint_set and hashing, and fixed some of the issues | detected over 38 issues and fixed 22 out of it        |
 | Shridhar Vilas Shinde | - Ran Ruff static analysis on trie data structure and fixed the issues                                    | detected 103 issues (36 safe fixes + 67 unsafe fixes) |
-| [Teammate 3]          | - Something                                                                                               | Something                                             |
+| Rohini Senthilkumar      | - Conducted static analysis on suffix_tree and implemented fixes for assertion and loop issues           | Detected 75 issues, fixed 75                         |
