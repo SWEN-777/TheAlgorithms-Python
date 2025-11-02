@@ -17,7 +17,7 @@ class Node:
         """
         self.data = data
         self.rank: int = None
-        self.parent: "Node" = None
+        self.parent: Node = None
 
 
 def make_set(x: Node) -> None:
