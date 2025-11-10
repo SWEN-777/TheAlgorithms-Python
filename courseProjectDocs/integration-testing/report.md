@@ -1,6 +1,6 @@
 # Integration Testing Report
 
-## Test Design Summary
+## Test Design Summary – QuadraticProbing
 
 We integrated:
 
@@ -71,11 +71,33 @@ Tested interactions:
 def find(self, word: str) -> bool:
     incoming_node = self.nodes.get(word[0], None)  # Fails if word is empty
 ```
+ 
+ ---
+
+## Test Design Summary - Sudoku Solver Integration
+
+We integrated the core components within the self-contained `sudoku_solver.py` file:
+
+- Constraint Propagation Core: assign() and eliminate() functions.
+- Search Algorithm: search() function (Depth-First Search with backtracking).
+- Setup/Validation: parse_grid() and solved() functions.
+
+Tested Interactions:
+- Full Solve Cycle: Confirmed that solve(grid) (which integrates parse_grid -> search) successfully returns a valid and structurally sound solution (solved(values)).
+- Rule 2 Integration: Verified that eliminate() correctly triggers assign() when a unique placement is found for a digit within a unit (forcing an assignment).
+- Failure Handling: Confirmed that an internal contradiction in eliminate() correctly propagates as False back through assign() and terminates the search() process.
+- Boundary Cases: Tested integration with non-trivial puzzles (grid1, grid2) and the empty grid (. * 81).
+
+## Bug Reports - Sudoku Solver
+
+No logic bugs were identified in the core sudoku_solver.py file. All initial test failures were due to issues in the test suite itself:
+
 
 ## Group Contributions
 
 - Uzair Mukadam: Designed and implemented all integration tests, debugged failures, and documented results
 - Shridhar Vilas Shinde: Designed and implemented integration tests for Trie and RadixTree, debugged failures, identified bug in RadixTree, and documented results
+- Rohini Senthilkumar: Designed and implemented integration tests for Arrays (specifically for Sudoku Solver)
 
 ## Group Contributions
 
@@ -83,3 +105,4 @@ def find(self, word: str) -> bool:
 | --------------------- | --------------------------------------------------------------------------------- | ----------------------------- |
 | Uzair Mukadam         | Designed and implemented integration tests for quadratic_probing under hashing    | Successfully executed 5 tests |
 | Shridhar Vilas Shinde | Designed and implemented integration tests for Trie and RadixTree data structures | Successfully executed 8 tests |
+| Rohini Senthilkumar | Designed and implemented integration tests for Sudoku Solver which leverages Arrays | Successfully executed 5 tests |
