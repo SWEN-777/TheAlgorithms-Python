@@ -11,6 +11,7 @@ pip install -r requirements.txt
 
 ```
 python -m unittest courseProjectDocs/system-testing/quadratic_probing.py
+python data_structures/queues/test_priority_queue.py 
 
 ```
 
