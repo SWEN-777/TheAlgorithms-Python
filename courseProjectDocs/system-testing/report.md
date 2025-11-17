@@ -23,11 +23,34 @@ System tests validate the main workflows of the hashing application:
 - Rehashing increased table size using `next_prime`.
 - No behavioral deviations observed.
 
-## Group Contributions
-- Uzair Mukadam: Designed and implemented all system-level test cases, executed tests, and documented results.
+---
+
+## Test Scope and Coverage - Trie Data Structure
+System tests validate the main workflows of the Trie data structure:
+- Dictionary building and word management using Trie
+- Word insertion and bulk operations
+- Word lookup and validation
+- Word deletion while preserving related words
+
+## Test Case Summary - Trie
+
+| Title | Pre-conditions | Test Steps | Expected Results |
+|-------|----------------|------------|------------------|
+| Dictionary Building and Word Management | TrieNode initialized | 1. Insert words `[apple, application, apply]` 2. Verify all words found 3. Verify non-existent words return False 4. Delete `apple` 5. Verify deletion 6. Verify remaining words exist | All insertions successful, lookups return correct values, deletion removes word while preserving others |
+
+## Execution and Results - Trie
+- System test executed successfully using `unittest`.
+- Trie word insertion, lookup, and deletion operations performed correctly.
+- Prefix relationships maintained correctly (deleting 'apple' did not affect 'application' or 'apply').
+- No behavioral deviations observed.
+
+---
 
 ## Group Contributions
+- Uzair Mukadam: Designed and implemented system-level test cases for `quadratic_probing.py`, executed tests, and documented results.
+- Shridhar Shinde: Designed and implemented system-level test case for `trie.py`, executed tests, and documented results.
 
 | Name           | Task / Contribution                                                                 | Notes                                                                 |
 |----------------|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------|
 | Uzair Mukadam  | Designed and implemented system-level test cases for `quadratic_probing.py` | Added 4 test cases |
+| Shridhar Shinde  | Designed and implemented system-level test case for `trie.py` | Added 1 test case |
