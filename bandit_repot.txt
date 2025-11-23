@@ -1,0 +1,1438 @@
+Working... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Run started:2025-11-23 18:03:43.459321+00:00
+
+Test results:
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/sudoku_solver.py:33:4
+32	    """A set of unit tests."""
+33	    assert len(squares) == 81
+34	    assert len(unitlist) == 27
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/sudoku_solver.py:34:4
+33	    assert len(squares) == 81
+34	    assert len(unitlist) == 27
+35	    assert all(len(units[s]) == 3 for s in squares)
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/sudoku_solver.py:35:4
+34	    assert len(unitlist) == 27
+35	    assert all(len(units[s]) == 3 for s in squares)
+36	    assert all(len(peers[s]) == 20 for s in squares)
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/sudoku_solver.py:36:4
+35	    assert all(len(units[s]) == 3 for s in squares)
+36	    assert all(len(peers[s]) == 20 for s in squares)
+37	    assert units["C2"] == [
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/sudoku_solver.py:37:4
+36	    assert all(len(peers[s]) == 20 for s in squares)
+37	    assert units["C2"] == [
+38	        ["A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2", "I2"],
+39	        ["C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9"],
+40	        ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"],
+41	    ]
+42	    # fmt: off
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/sudoku_solver.py:43:4
+42	    # fmt: off
+43	    assert peers["C2"] == {
+44	        "A2", "B2", "D2", "E2", "F2", "G2", "H2", "I2", "C1", "C3",
+45	        "C4", "C5", "C6", "C7", "C8", "C9", "A1", "A3", "B1", "B3"
+46	    }
+47	    # fmt: on
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/sudoku_solver.py:69:4
+68	    chars = [c for c in grid if c in digits or c in "0."]
+69	    assert len(chars) == 81
+70	    return dict(zip(squares, chars))
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/blacklists/blacklist_calls.html#b311-random
+   Location: data_structures/arrays/sudoku_solver.py:208:33
+207	    for s in shuffled(squares):
+208	        if not assign(values, s, random.choice(values[s])):
+209	            break
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:17:4
+16	    # 1. Integration check: Did the solver produce a result?
+17	    assert solution_values is not False
+18	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:20:4
+19	    # 2. Integration check: Is the result valid according to the unit rules?
+20	    assert solved(solution_values) is True
+21	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:23:4
+22	    # 3. Simple length check for robustness
+23	    assert len(solution_values) == 81
+24	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:31:4
+30	
+31	    assert solution_values is not False
+32	    assert solved(solution_values) is True
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:32:4
+31	    assert solution_values is not False
+32	    assert solved(solution_values) is True
+33	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:42:4
+41	
+42	    assert solution_values is not False
+43	    assert solved(solution_values) is True
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:43:4
+42	    assert solution_values is not False
+43	    assert solved(solution_values) is True
+44	    
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:63:4
+62	    # 1. Verify self-propagation (assign and eliminate integration)
+63	    assert result is not False
+64	    assert result['A2'] == '2'
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:64:4
+63	    assert result is not False
+64	    assert result['A2'] == '2'
+65	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:67:4
+66	    # 2. Check elimination on a row peer (A3)
+67	    assert '2' not in result['A3']
+68	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:70:4
+69	    # 3. Check elimination on a 3x3 block peer (B1)
+70	    assert '2' not in result['B1']
+71	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:88:4
+87	    # Now, '1' is only possible in A1 in that block unit. Rule 2 should have triggered assign(A1, '1').
+88	    assert values_r2['A1'] == '1'
+89	    # Verify Rule 1 (assignment propagation) ran after Rule 2's assignment
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/arrays/test_sudoku_solver_integration.py:90:4
+89	    # Verify Rule 1 (assignment propagation) ran after Rule 2's assignment
+90	    assert '1' not in values_r2['A4'] 
+91	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/avl_tree.py:100:4
+99	    ret = node.get_left()
+100	    assert ret is not None
+101	    node.set_left(ret.get_right())
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/avl_tree.py:116:4
+115	    ret = node.get_right()
+116	    assert ret is not None
+117	    node.set_right(ret.get_left())
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/avl_tree.py:138:4
+137	    left_child = node.get_left()
+138	    assert left_child is not None
+139	    node.set_left(left_rotation(left_child))
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/avl_tree.py:145:4
+144	    right_child = node.get_right()
+145	    assert right_child is not None
+146	    node.set_right(right_rotation(right_child))
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/avl_tree.py:159:12
+158	            left_child = node.get_left()
+159	            assert left_child is not None
+160	            if (
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/avl_tree.py:170:12
+169	            right_child = node.get_right()
+170	            assert right_child is not None
+171	            if data < right_child.get_data():
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/avl_tree.py:229:8
+228	    if get_height(right_child) - get_height(left_child) == 2:
+229	        assert right_child is not None
+230	        if get_height(right_child.get_right()) > get_height(right_child.get_left()):
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/avl_tree.py:235:8
+234	    elif get_height(right_child) - get_height(left_child) == -2:
+235	        assert left_child is not None
+236	        if get_height(left_child.get_left()) > get_height(left_child.get_right()):
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:309:8
+308	        t = BinarySearchTree()
+309	        assert t.is_empty()
+310	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:315:8
+314	        """
+315	        assert t.root is not None
+316	        assert t.root.parent is None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:316:8
+315	        assert t.root is not None
+316	        assert t.root.parent is None
+317	        assert t.root.label == 8
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:317:8
+316	        assert t.root.parent is None
+317	        assert t.root.label == 8
+318	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:325:8
+324	        """
+325	        assert t.root.right is not None
+326	        assert t.root.right.parent == t.root
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:326:8
+325	        assert t.root.right is not None
+326	        assert t.root.right.parent == t.root
+327	        assert t.root.right.label == 10
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:327:8
+326	        assert t.root.right.parent == t.root
+327	        assert t.root.right.label == 10
+328	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:335:8
+334	        """
+335	        assert t.root.left is not None
+336	        assert t.root.left.parent == t.root
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:336:8
+335	        assert t.root.left is not None
+336	        assert t.root.left.parent == t.root
+337	        assert t.root.left.label == 3
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:337:8
+336	        assert t.root.left.parent == t.root
+337	        assert t.root.left.label == 3
+338	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:347:8
+346	        """
+347	        assert t.root.left.right is not None
+348	        assert t.root.left.right.parent == t.root.left
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:348:8
+347	        assert t.root.left.right is not None
+348	        assert t.root.left.right.parent == t.root.left
+349	        assert t.root.left.right.label == 6
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:349:8
+348	        assert t.root.left.right.parent == t.root.left
+349	        assert t.root.left.right.label == 6
+350	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:359:8
+358	        """
+359	        assert t.root.left.left is not None
+360	        assert t.root.left.left.parent == t.root.left
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:360:8
+359	        assert t.root.left.left is not None
+360	        assert t.root.left.left.parent == t.root.left
+361	        assert t.root.left.left.label == 1
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:361:8
+360	        assert t.root.left.left.parent == t.root.left
+361	        assert t.root.left.left.label == 1
+362	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:370:8
+369	        node = t.search(6)
+370	        assert node.label == 6
+371	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:373:8
+372	        node = t.search(13)
+373	        assert node.label == 13
+374	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:393:8
+392	        """
+393	        assert t.root is not None
+394	        assert t.root.right is not None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:394:8
+393	        assert t.root is not None
+394	        assert t.root.right is not None
+395	        assert t.root.right.right is not None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:395:8
+394	        assert t.root.right is not None
+395	        assert t.root.right.right is not None
+396	        assert t.root.right.right.right is None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:396:8
+395	        assert t.root.right.right is not None
+396	        assert t.root.right.right.right is None
+397	        assert t.root.right.right.left is None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:397:8
+396	        assert t.root.right.right.right is None
+397	        assert t.root.right.right.left is None
+398	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:411:8
+410	        """
+411	        assert t.root.left is not None
+412	        assert t.root.left.right is not None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:412:8
+411	        assert t.root.left is not None
+412	        assert t.root.left.right is not None
+413	        assert t.root.left.right.left is not None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:413:8
+412	        assert t.root.left.right is not None
+413	        assert t.root.left.right.left is not None
+414	        assert t.root.left.right.right is None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:414:8
+413	        assert t.root.left.right.left is not None
+414	        assert t.root.left.right.right is None
+415	        assert t.root.left.right.left.label == 4
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:415:8
+414	        assert t.root.left.right.right is None
+415	        assert t.root.left.right.left.label == 4
+416	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:427:8
+426	        """
+427	        assert t.root.left.left is not None
+428	        assert t.root.left.right.right is not None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:428:8
+427	        assert t.root.left.left is not None
+428	        assert t.root.left.right.right is not None
+429	        assert t.root.left.left.label == 1
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:429:8
+428	        assert t.root.left.right.right is not None
+429	        assert t.root.left.left.label == 1
+430	        assert t.root.left.right.label == 4
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:430:8
+429	        assert t.root.left.left.label == 1
+430	        assert t.root.left.right.label == 4
+431	        assert t.root.left.right.right.label == 5
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:431:8
+430	        assert t.root.left.right.label == 4
+431	        assert t.root.left.right.right.label == 5
+432	        assert t.root.left.right.left is None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:432:8
+431	        assert t.root.left.right.right.label == 5
+432	        assert t.root.left.right.left is None
+433	        assert t.root.left.left.parent == t.root.left
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:433:8
+432	        assert t.root.left.right.left is None
+433	        assert t.root.left.left.parent == t.root.left
+434	        assert t.root.left.right.parent == t.root.left
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:434:8
+433	        assert t.root.left.left.parent == t.root.left
+434	        assert t.root.left.right.parent == t.root.left
+435	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:444:8
+443	        """
+444	        assert t.root is not None
+445	        assert t.root.left.label == 4
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:445:8
+444	        assert t.root is not None
+445	        assert t.root.left.label == 4
+446	        assert t.root.left.right.label == 5
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:446:8
+445	        assert t.root.left.label == 4
+446	        assert t.root.left.right.label == 5
+447	        assert t.root.left.left.label == 1
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:447:8
+446	        assert t.root.left.right.label == 5
+447	        assert t.root.left.left.label == 1
+448	        assert t.root.left.parent == t.root
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:448:8
+447	        assert t.root.left.left.label == 1
+448	        assert t.root.left.parent == t.root
+449	        assert t.root.left.left.parent == t.root.left
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:449:8
+448	        assert t.root.left.parent == t.root
+449	        assert t.root.left.left.parent == t.root.left
+450	        assert t.root.left.right.parent == t.root.left
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:450:8
+449	        assert t.root.left.left.parent == t.root.left
+450	        assert t.root.left.right.parent == t.root.left
+451	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:460:8
+459	        """
+460	        assert t.root.left is not None
+461	        assert t.root.left.left is not None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:461:8
+460	        assert t.root.left is not None
+461	        assert t.root.left.left is not None
+462	        assert t.root.left.label == 5
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:462:8
+461	        assert t.root.left.left is not None
+462	        assert t.root.left.label == 5
+463	        assert t.root.left.right is None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:463:8
+462	        assert t.root.left.label == 5
+463	        assert t.root.left.right is None
+464	        assert t.root.left.left.label == 1
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:464:8
+463	        assert t.root.left.right is None
+464	        assert t.root.left.left.label == 1
+465	        assert t.root.left.parent == t.root
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:465:8
+464	        assert t.root.left.left.label == 1
+465	        assert t.root.left.parent == t.root
+466	        assert t.root.left.left.parent == t.root.left
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:466:8
+465	        assert t.root.left.parent == t.root
+466	        assert t.root.left.left.parent == t.root.left
+467	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:481:8
+480	        """
+481	        assert t.root is not None
+482	        assert t.root.left is not None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:482:8
+481	        assert t.root is not None
+482	        assert t.root.left is not None
+483	        assert t.root.left.left is not None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:483:8
+482	        assert t.root.left is not None
+483	        assert t.root.left.left is not None
+484	        assert t.root.left.right is not None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:484:8
+483	        assert t.root.left.left is not None
+484	        assert t.root.left.right is not None
+485	        assert t.root.left.right.left is not None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:485:8
+484	        assert t.root.left.right is not None
+485	        assert t.root.left.right.left is not None
+486	        assert t.root.left.right.right is not None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:486:8
+485	        assert t.root.left.right.left is not None
+486	        assert t.root.left.right.right is not None
+487	        assert t.root.left.label == 4
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:487:8
+486	        assert t.root.left.right.right is not None
+487	        assert t.root.left.label == 4
+488	        assert t.root.left.right.label == 6
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:488:8
+487	        assert t.root.left.label == 4
+488	        assert t.root.left.right.label == 6
+489	        assert t.root.left.left.label == 1
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:489:8
+488	        assert t.root.left.right.label == 6
+489	        assert t.root.left.left.label == 1
+490	        assert t.root.left.right.right.label == 7
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:490:8
+489	        assert t.root.left.left.label == 1
+490	        assert t.root.left.right.right.label == 7
+491	        assert t.root.left.right.left.label == 5
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:491:8
+490	        assert t.root.left.right.right.label == 7
+491	        assert t.root.left.right.left.label == 5
+492	        assert t.root.left.parent == t.root
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:492:8
+491	        assert t.root.left.right.left.label == 5
+492	        assert t.root.left.parent == t.root
+493	        assert t.root.left.right.parent == t.root.left
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:493:8
+492	        assert t.root.left.parent == t.root
+493	        assert t.root.left.right.parent == t.root.left
+494	        assert t.root.left.left.parent == t.root.left
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:494:8
+493	        assert t.root.left.right.parent == t.root.left
+494	        assert t.root.left.left.parent == t.root.left
+495	        assert t.root.left.right.left.parent == t.root.left.right
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:495:8
+494	        assert t.root.left.left.parent == t.root.left
+495	        assert t.root.left.right.left.parent == t.root.left.right
+496	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:500:8
+499	        t.empty()
+500	        assert t.root is None
+501	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:504:8
+503	        t = self._get_binary_search_tree()
+504	        assert not t.is_empty()
+505	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:507:8
+506	        t.empty()
+507	        assert t.is_empty()
+508	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:512:8
+511	
+512	        assert t.exists(6)
+513	        assert not t.exists(-1)
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:513:8
+512	        assert t.exists(6)
+513	        assert not t.exists(-1)
+514	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:518:8
+517	
+518	        assert t.get_max_label() == 14
+519	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:527:8
+526	
+527	        assert t.get_min_label() == 1
+528	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:537:8
+536	        inorder_traversal_nodes = [i.label for i in t.inorder_traversal()]
+537	        assert inorder_traversal_nodes == [1, 3, 4, 5, 6, 7, 8, 10, 13, 14]
+538	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/binary_search_tree_recursive.py:543:8
+542	        preorder_traversal_nodes = [i.label for i in t.preorder_traversal()]
+543	        assert preorder_traversal_nodes == [8, 3, 1, 6, 4, 5, 7, 10, 14, 13]
+544	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/is_sorted.py:94:4
+93	    print(f"Tree {list(tree)} is sorted: {tree.is_sorted = }.")
+94	    assert tree.right
+95	    tree.right.data = 2.0
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/non_recursive_segment_tree.py:152:16
+151	                sum_range = reduce(lambda a, b: a + b, test_array[i : j + 1])
+152	                assert min_range == min_segment_tree.query(i, j)
+153	                assert max_range == max_segment_tree.query(i, j)
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/non_recursive_segment_tree.py:153:16
+152	                assert min_range == min_segment_tree.query(i, j)
+153	                assert max_range == max_segment_tree.query(i, j)
+154	                assert sum_range == sum_segment_tree.query(i, j)
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/non_recursive_segment_tree.py:154:16
+153	                assert max_range == max_segment_tree.query(i, j)
+154	                assert sum_range == sum_segment_tree.query(i, j)
+155	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/red_black_tree.py:689:4
+688	def pytests() -> None:
+689	    assert test_rotations()
+690	    assert test_insert()
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/red_black_tree.py:690:4
+689	    assert test_rotations()
+690	    assert test_insert()
+691	    assert test_insert_and_search()
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/red_black_tree.py:691:4
+690	    assert test_insert()
+691	    assert test_insert_and_search()
+692	    assert test_insert_delete()
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/red_black_tree.py:692:4
+691	    assert test_insert_and_search()
+692	    assert test_insert_delete()
+693	    assert test_floor_ceil()
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/red_black_tree.py:693:4
+692	    assert test_insert_delete()
+693	    assert test_floor_ceil()
+694	    assert test_tree_traversal()
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/red_black_tree.py:694:4
+693	    assert test_floor_ceil()
+694	    assert test_tree_traversal()
+695	    assert test_tree_chaining()
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/red_black_tree.py:695:4
+694	    assert test_tree_traversal()
+695	    assert test_tree_chaining()
+696	
+
+--------------------------------------------------
+>> Issue: [B311:blacklist] Standard pseudo-random generators are not suitable for security/cryptographic purposes.
+   Severity: Low   Confidence: High
+   CWE: CWE-330 (https://cwe.mitre.org/data/definitions/330.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/blacklists/blacklist_calls.html#b311-random
+   Location: data_structures/binary_tree/treap.py:14:21
+13	        self.value = value
+14	        self.prior = random()
+15	        self.left: Node | None = None
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:12:4
+11	    root = build_tree([])
+12	    assert root is None
+13	    assert rank(root, 1, 0, 0) == 0
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:13:4
+12	    assert root is None
+13	    assert rank(root, 1, 0, 0) == 0
+14	    assert rank_till_index(root, 1, 0) == 0
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:14:4
+13	    assert rank(root, 1, 0, 0) == 0
+14	    assert rank_till_index(root, 1, 0) == 0
+15	    assert quantile(root, 0, 0, 0) == -1
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:15:4
+14	    assert rank_till_index(root, 1, 0) == 0
+15	    assert quantile(root, 0, 0, 0) == -1
+16	    assert range_counting(root, 0, 0, 0, 10) == 0
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:16:4
+15	    assert quantile(root, 0, 0, 0) == -1
+16	    assert range_counting(root, 0, 0, 0, 10) == 0
+17	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:20:4
+19	    root = build_tree([5])
+20	    assert root.minn == 5 and root.maxx == 5
+21	    assert rank(root, 5, 0, 0) == 1
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:21:4
+20	    assert root.minn == 5 and root.maxx == 5
+21	    assert rank(root, 5, 0, 0) == 1
+22	    assert rank_till_index(root, 5, 0) == 1
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:22:4
+21	    assert rank(root, 5, 0, 0) == 1
+22	    assert rank_till_index(root, 5, 0) == 1
+23	    assert quantile(root, 0, 0, 0) == 5
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:23:4
+22	    assert rank_till_index(root, 5, 0) == 1
+23	    assert quantile(root, 0, 0, 0) == 5
+24	    assert range_counting(root, 0, 0, 0, 10) == 1
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:24:4
+23	    assert quantile(root, 0, 0, 0) == 5
+24	    assert range_counting(root, 0, 0, 0, 10) == 1
+25	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:28:4
+27	    root = build_tree([1, 2, 3, 4])
+28	    assert rank(root, 99, 0, 3) == 0
+29	    assert rank_till_index(root, 99, 3) == 0
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:29:4
+28	    assert rank(root, 99, 0, 3) == 0
+29	    assert rank_till_index(root, 99, 3) == 0
+30	    assert range_counting(root, 0, 3, 100, 200) == 0
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/binary_tree/wavelet_tree_edge_tests.py:30:4
+29	    assert rank_till_index(root, 99, 3) == 0
+30	    assert range_counting(root, 0, 3, 100, 200) == 0
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/hash_map.py:46:8
+45	        self._buckets: list[_Item | None] = [None] * initial_block_size
+46	        assert 0.0 < capacity_factor < 1.0
+47	        self._capacity_factor = capacity_factor
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/number_theory/prime_numbers.py:35:4
+34	    # precondition
+35	    assert isinstance(number, int) and (number >= 0), (
+36	        "'number' must been an int and positive"
+37	    )
+38	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/quadratic_probing_mock_test.py:17:4
+16	    result = qp._collision_resolution(0)
+17	    assert result == 2
+18	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/quadratic_probing_mock_test.py:26:4
+25	    result = qp._collision_resolution(0)
+26	    assert result is None
+27	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/quadratic_probing_mock_test.py:41:4
+40	    result = qp._collision_resolution(0)
+41	    assert result == 3
+42	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/quadratic_probing_mock_test.py:53:4
+52	    result = qp._collision_resolution(0)
+53	    assert result == 4
+54	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/quadratic_probing_mock_test.py:62:4
+61	    result = qp._collision_resolution(-5)
+62	    assert result is not None and isinstance(result, int)
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/tests/test_hash_map.py:83:8
+82	        py_res, py_exc = _run_operation(py, fun, *args)
+83	        assert my_res == py_res
+84	        assert str(my_exc) == str(py_exc)
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/tests/test_hash_map.py:84:8
+83	        assert my_res == py_res
+84	        assert str(my_exc) == str(py_exc)
+85	        assert set(py) == set(my)
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/tests/test_hash_map.py:85:8
+84	        assert str(my_exc) == str(py_exc)
+85	        assert set(py) == set(my)
+86	        assert len(py) == len(my)
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/tests/test_hash_map.py:86:8
+85	        assert set(py) == set(my)
+86	        assert len(py) == len(my)
+87	        assert set(my.items()) == set(py.items())
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/tests/test_hash_map.py:87:8
+86	        assert len(py) == len(my)
+87	        assert set(my.items()) == set(py.items())
+88	
+
+--------------------------------------------------
+>> Issue: [B101:assert_used] Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
+   Severity: Low   Confidence: High
+   CWE: CWE-703 (https://cwe.mitre.org/data/definitions/703.html)
+   More Info: https://bandit.readthedocs.io/en/1.9.1/plugins/b101_assert_used.html
+   Location: data_structures/hashing/tests/test_hash_map.py:97:4
+96	
+97	    assert dict_public_names > hash_public_names
+
+--------------------------------------------------
+
+Code scanned:
+	Total lines of code: 7057
+	Total lines skipped (#nosec): 0
+	Total potential issues skipped due to specifically being disabled (e.g., #nosec BXXX): 0
+
+Run metrics:
+	Total issues (by severity):
+		Undefined: 0
+		Low: 141
+		Medium: 0
+		High: 0
+	Total issues (by confidence):
+		Undefined: 0
+		Low: 0
+		Medium: 0
+		High: 141
+Files skipped (0):
