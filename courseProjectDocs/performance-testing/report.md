@@ -54,6 +54,30 @@ We tested sustained concurrent operations on Trie data structure using Python th
 
 ---
 
+## Stress Test
+
+**Test Scope and Design:**
+We tested the core efficiency and time complexity of the Doubly Linked List implementation under a single-threaded sequential load, specifically focusing on the performance of O(1) vs. O(N) operations.
+
+**Configuration:**
+- Sequential, single-threaded execution.
+- Total Operations: 25,000 (10,000 insertions, 10,000 searches, 5,000 deletions).
+
+**Results:**
+| Operation Type                 | Total Count | Inferred Time Complexity      | Time Taken (s) |
+|-------------------------------|-------------|-------------------------------|----------------|
+| Insertion Stress (Head)       | 10,000      | O(N) (Expected O(1))          | 5.51           |
+| Search Stress (Linear Traversal) | 10,000   | O(N) (Expected O(N))          | 7.31           |
+| Deletion Stress (Mixed Index) | 5,000       | O(N²) (Expected O(N))         | 10.58          |
+| Total Test Duration           | 25,000      | N/A                           | ~23.4          |
+
+
+**Findings:**
+The high duration and complexity violations are attributed to the __len__ method calculating the list's size by traversing the entire list (O(N)) instead of using an O(1) size counter. Since methods like delete_at_nth call len() inside a loop, the test rapidly created the observed O(N^2) slowdown.
+
+---
+
 ## Group Contributions
 - Uzair Mukadam: Designed and ran Spike Test, documented results.
 - Shridhar Vilas Shinde: Designed and ran Load Test, documented results.
+- Rohini: Designed and ran Stress Test, documented results.
