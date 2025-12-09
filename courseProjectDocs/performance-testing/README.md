@@ -20,6 +20,24 @@ locust -f courseProjectDocs/performance-testing/spike_test.py
 
 - Memory usage spike 
 
+## Run Load Test
+From the project root:
+```bash
+PYTHONPATH=. python courseProjectDocs/performance-testing/load_test.py
+```
+
+## Expected Output (Load Test)
+
+- Total operations completed
+
+- Throughput (requests per second)
+
+- Average response time
+
+- CPU usage
+
+- Memory usage
+
 ## Notes
 - Spike tests simulate sudden surges of traffic, not gradual load.
 
